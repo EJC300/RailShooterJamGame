@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dvufokd430hg7"]
+
+[ext_resource type="Texture2D" uid="uid://bg32i78se8hd8" path="res://Level/Art/skybox-space.png" id="1_oo2o4"]
+[ext_resource type="PackedScene" uid="uid://cv22ai1p1hf8j" path="res://Player/Scenes/player.tscn" id="2_yhmqk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3gngh"]
+panorama = ExtResource("1_oo2o4")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_57qmd"]
+sky_material = SubResource("PanoramaSkyMaterial_3gngh")
+
+[sub_resource type="Environment" id="Environment_yf5fn"]
+background_mode = 2
+sky = SubResource("Sky_57qmd")
+
+[node name="SpaceLevel" type="Node3D" unique_id=1736142688]
+
+[node name="Space" type="WorldEnvironment" parent="." unique_id=1754117930]
+environment = SubResource("Environment_yf5fn")
+
+[node name="Player" parent="." unique_id=114084622 node_paths=PackedStringArray("camera") instance=ExtResource("2_yhmqk")]
+look_speed = 0.0
+camera = NodePath("../PlayerCamara")
+
+[node name="PlayerCamara" type="Camera3D" parent="." unique_id=1820126635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.66643256)
+current = true
