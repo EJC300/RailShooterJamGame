@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnagjofvtpcy0"]
+
+[ext_resource type="Script" uid="uid://crmcpgaenj8lw" path="res://Player/Scripts/player_laser_gun.gd" id="1_ok2xp"]
+[ext_resource type="PackedScene" uid="uid://de247yxo54yj6" path="res://Game/Scenes/laser_gun.tscn" id="2_5jsdd"]
+
+[node name="PlayerLaserGun" type="Node3D" unique_id=977275067]
+script = ExtResource("1_ok2xp")
+
+[node name="LaserGun" parent="." unique_id=510962780 instance=ExtResource("2_5jsdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037209377, 0, 0)
+rounds_per_minute = 45.0
+
+[node name="LaserGun2" parent="." unique_id=1483654608 instance=ExtResource("2_5jsdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025763616, 0, 0)
+rounds_per_minute = 45.0
+
+[connection signal="fire" from="." to="LaserGun" method="_on_player_laser_gun_fire"]
+[connection signal="fire" from="." to="LaserGun2" method="_on_player_laser_gun_fire"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://de247yxo54yj6"]
+
+[ext_resource type="Script" uid="uid://b5xgag1u3u86j" path="res://Game/Scripts/laser_gun.gd" id="1_opmcv"]
+
+[node name="LaserGun" type="Node3D" unique_id=510962780]
+script = ExtResource("1_opmcv")
+rounds_per_minute = 100.0
+
+[node name="FireCoolDown" type="Timer" parent="." unique_id=1861404117]
+wait_time = 0.5
+autostart = true
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=418646133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.035349593)
+
+[connection signal="timeout" from="FireCoolDown" to="." method="_on_fire_cool_down_timeout"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://baweam6l3kcd8" path="res://Player/Art/craft_speederD.glb" id="1_i823h"]
 [ext_resource type="Script" uid="uid://cif2m6xvdwp0" path="res://Player/Scripts/player_mover.gd" id="1_rg7kn"]
+[ext_resource type="PackedScene" uid="uid://cnagjofvtpcy0" path="res://Player/Scenes/player_laser_gun.tscn" id="3_52sos"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.22287473
@@ -9,10 +10,12 @@ radius = 0.22287473
 [node name="Player" type="CharacterBody3D" unique_id=114084622]
 script = ExtResource("1_rg7kn")
 speed = 45.0
-look_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=458824493]
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="craft_speederD2" parent="." unique_id=557833252 instance=ExtResource("1_i823h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09905568, 0, 0)
+
+[node name="PlayerLaserGun" parent="." unique_id=977275067 instance=ExtResource("3_52sos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.008351177)
