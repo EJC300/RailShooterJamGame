@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cv22ai1p1hf8j" path="res://Player/Scenes/player.tscn" id="2_yhmqk"]
 [ext_resource type="Script" uid="uid://c7jvgxttut65w" path="res://Game/Scripts/camera_look.gd" id="3_yhmqk"]
 [ext_resource type="PackedScene" uid="uid://vq2ed1diejpy" path="res://Level/Scenes/planet.tscn" id="4_jwcsq"]
-[ext_resource type="PackedScene" uid="uid://ckawgnmrrgyd5" path="res://Enemies/Scenes/EnemyShip.tscn" id="5_84t07"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3gngh"]
 panorama = ExtResource("1_oo2o4")
@@ -23,7 +22,6 @@ sky = SubResource("Sky_57qmd")
 environment = SubResource("Environment_yf5fn")
 
 [node name="Player" parent="." unique_id=114084622 node_paths=PackedStringArray("camera") instance=ExtResource("2_yhmqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04589489)
 speed = 145.0
 camera = NodePath("../PlayerCamara")
 
@@ -40,7 +38,3 @@ light_color = Color(0.53289264, 0.7359255, 0.8146611, 1)
 
 [node name="Planet" parent="." unique_id=1297347276 instance=ExtResource("4_jwcsq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.011925)
-
-[node name="EnemyShip" parent="." unique_id=686896700 node_paths=PackedStringArray("test_target") instance=ExtResource("5_84t07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3443832, -2.3841858e-07, -2.392054)
-test_target = NodePath("../Player")

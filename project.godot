@@ -11,17 +11,23 @@ config_version=5
 [application]
 
 config/name="RailShooterJamProject"
+run/main_scene="uid://dvufokd430hg7"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerManager="*uid://boo00ejn3fpse"
+GameManager="*uid://nyjyoa6mwdfm"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+Planet="The Planet"
 
 [input]
 

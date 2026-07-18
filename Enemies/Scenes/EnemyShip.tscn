@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ckawgnmrrgyd5"]
+
+[ext_resource type="Script" uid="uid://biei0qtiy38" path="res://Enemies/Scripts/enemy_ship.gd" id="1_iu2qu"]
+[ext_resource type="Texture2D" uid="uid://cwfdjpof25aj8" path="res://Enemies/Art/enemyRed3.png" id="2_rdg5o"]
+
+[node name="EnemyShip" type="Node3D" unique_id=686896700]
+script = ExtResource("1_iu2qu")
+
+[node name="Ship" type="Sprite3D" parent="." unique_id=1889472745]
+texture = ExtResource("2_rdg5o")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://blr4ndbkd4ni5"]
+
+[ext_resource type="Material" uid="uid://crnsgxp3dl265" path="res://Level/Effects/fade.tres" id="1_c26ly"]
+[ext_resource type="PackedScene" uid="uid://cv22ai1p1hf8j" path="res://Player/Scenes/player.tscn" id="2_gtlgo"]
+[ext_resource type="Script" uid="uid://c7jvgxttut65w" path="res://Game/Scripts/camera_look.gd" id="3_gui1v"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+
+[node name="PlanetSide" type="Node3D" unique_id=1602440736]
+
+[node name="WhiteScreen" type="MeshInstance3D" parent="." unique_id=713479318]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0)
+mesh = SubResource("QuadMesh_g4v7s")
+surface_material_override/0 = ExtResource("1_c26ly")
+
+[node name="Player" parent="." unique_id=114084622 node_paths=PackedStringArray("camera") instance=ExtResource("2_gtlgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.058091402)
+camera = NodePath("../PlayerCamara")
+
+[node name="PlayerCamara" type="Camera3D" parent="." unique_id=879574163 node_paths=PackedStringArray("world_camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.66643256)
+current = true
+script = ExtResource("3_gui1v")
+world_camera = NodePath("../WorldCamera")
+
+[node name="WorldCamera" type="Camera3D" parent="." unique_id=1108701432]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1929601461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.058091402)

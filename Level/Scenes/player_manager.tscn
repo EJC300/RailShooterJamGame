@@ -4,3 +4,5 @@
 
 [node name="PlayerManager" type="Node2D" unique_id=340408633]
 script = ExtResource("1_vdro6")
+
+[node name="DistanceTimer" type="Timer" parent="." unique_id=744952744]

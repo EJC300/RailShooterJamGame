@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://de247yxo54yj6"]
 
 [ext_resource type="Script" uid="uid://b5xgag1u3u86j" path="res://Game/Scripts/laser_gun.gd" id="1_opmcv"]
+[ext_resource type="AudioStream" uid="uid://cu3ifpb654g6p" path="res://Player/Effects/sfx_laser1.ogg" id="2_am21d"]
 
 [node name="LaserGun" type="Node3D" unique_id=510962780]
 script = ExtResource("1_opmcv")
@@ -12,5 +13,8 @@ autostart = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=418646133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.035349593)
+
+[node name="LaserSound" type="AudioStreamPlayer3D" parent="." unique_id=22167702]
+stream = ExtResource("2_am21d")
 
 [connection signal="timeout" from="FireCoolDown" to="." method="_on_fire_cool_down_timeout"]

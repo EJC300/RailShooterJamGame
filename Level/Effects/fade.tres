@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://crnsgxp3dl265"]
+
+[ext_resource type="Shader" uid="uid://bkq2fguhjqskx" path="res://Level/effects/planet_side.gdshader" id="1_08ukf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_08ukf")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vq2ed1diejpy"]
+
+[ext_resource type="Script" uid="uid://dtqhqdh1dbavm" path="res://Level/Scripts/planet.gd" id="1_ilt2m"]
+[ext_resource type="Texture2D" uid="uid://dn572m1tq60rx" path="res://Level/Art/planet01.png" id="2_y0pm7"]
+
+[node name="Planet" type="Node3D" unique_id=1297347276 groups=["Planet"]]
+script = ExtResource("1_ilt2m")
+max_scale = 15.0
+
+[node name="Planet" type="Sprite3D" parent="." unique_id=1496645479]
+texture = ExtResource("2_y0pm7")
+
+[node name="PlanetScaler" type="Timer" parent="." unique_id=30653064]
+wait_time = 0.059000000000000004
+autostart = true
+
+[connection signal="timeout" from="PlanetScaler" to="." method="_on_planet_scaler_timeout"]
