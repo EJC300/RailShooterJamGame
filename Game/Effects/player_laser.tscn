@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dg5fmm28x27kw"]
+
+[ext_resource type="PackedScene" uid="uid://jc2c6c40sy6c" path="res://Player/Scenes/player_laser.tscn" id="1_y6uvv"]
+
+[node name="PlayerLaser" unique_id=824702556 instance=ExtResource("1_y6uvv")]
+target_name = "enemy"

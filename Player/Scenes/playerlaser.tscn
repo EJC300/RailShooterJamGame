@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b85po10cnwkqu"]
+
+[ext_resource type="Script" uid="uid://bh7ndb2xuhghn" path="res://Game/Scripts/player_laser.gd" id="1_t8xbv"]
+[ext_resource type="Texture2D" uid="uid://bbf7j3sywosjt" path="res://Game/Art/laserBlue08.png" id="2_hcok0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.09755194
+
+[node name="Laser" type="Area3D" unique_id=824702556]
+script = ExtResource("1_t8xbv")
+speed = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1524383379]
+transform = Transform3D(0.35908675, 0, 0, 0, 0.35908675, 0, 0, 0, 0.35908675, 0, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=798330874]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+texture = ExtResource("2_hcok0")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprite3D" unique_id=1285076146]
+transform = Transform3D(0.0071767867, 0, -0.99997425, 0, 1, 0, 0.99997425, 0, 0.0071767867, 0, 0, 0.002105385)
+texture = ExtResource("2_hcok0")
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1534235576]
+wait_time = 0.2
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

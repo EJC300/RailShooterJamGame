@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://vq2ed1diejpy" path="res://Level/Scenes/planet.tscn" id="4_jwcsq"]
 [ext_resource type="PackedScene" uid="uid://ckawgnmrrgyd5" path="res://Enemies/Scenes/EnemyShip.tscn" id="5_84t07"]
 [ext_resource type="Script" uid="uid://7oae87w1u7dq" path="res://Level/Scripts/enemy_spawn_2D.gd" id="6_hemjf"]
-[ext_resource type="PackedScene" uid="uid://2mq7juk1e4u4" path="res://Enemies/Scenes/explosion.tscn" id="7_wgysr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3gngh"]
 panorama = ExtResource("1_oo2o4")
@@ -33,7 +32,7 @@ point_count = 4
 environment = SubResource("Environment_yf5fn")
 
 [node name="Player" parent="." unique_id=114084622 node_paths=PackedStringArray("camera") instance=ExtResource("2_yhmqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04589489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.736419e-05, 0.00024841726, 0.045434248)
 speed = 145.0
 camera = NodePath("../PlayerCamara")
 
@@ -64,10 +63,7 @@ script = ExtResource("6_hemjf")
 autostart = true
 
 [node name="PathSpawnPosition" type="PathFollow3D" parent="SpawnPath" unique_id=1925844539]
-transform = Transform3D(-0.25631845, 0.9662966, -0.0235992, 0.17227945, 0.069695644, 0.98257005, 0.95110446, 0.24778825, -0.1843389, -9.654667, -4.898409, 1.07458)
+transform = Transform3D(-0.2563185, 0.9662966, -0.0235992, 0.17227949, 0.069695644, 0.98257005, 0.95110464, 0.24778825, -0.1843389, -9.654667, -4.898409, 1.07458)
 use_model_front = true
-
-[node name="Explosion" parent="." unique_id=33637298 instance=ExtResource("7_wgysr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9961953, 0, -5.634178)
 
 [connection signal="timeout" from="SpawnPath/Change" to="SpawnPath" method="_on_change_timeout"]

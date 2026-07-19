@@ -2,18 +2,16 @@
 
 [ext_resource type="Script" uid="uid://biei0qtiy38" path="res://Enemies/Scripts/enemy_ship.gd" id="1_iu2qu"]
 [ext_resource type="PackedScene" uid="uid://rpcwb33c8elg" path="res://Enemies/Art/craft_speederC.glb" id="2_iu2qu"]
+[ext_resource type="PackedScene" uid="uid://2mq7juk1e4u4" path="res://Enemies/Scenes/Explosion.tscn" id="2_rdg5o"]
+[ext_resource type="PackedScene" uid="uid://de247yxo54yj6" path="res://Game/Scenes/laser_gun.tscn" id="3_rdg5o"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
-radius = 1.1565872
+[sub_resource type="SphereShape3D" id="SphereShape3D_rdg5o"]
+radius = 1.6734439
 
-[node name="EnemyShip" type="Node3D" unique_id=686896700 groups=["Enemy"]]
+[node name="EnemyShip" type="Node3D" unique_id=686896700 groups=["enemy"]]
 transform = Transform3D(-0.9997602, 0, 0.021897322, 0, 1, 0, -0.021897322, 0, -0.9997602, 0, 0, 0)
 script = ExtResource("1_iu2qu")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=1640069879]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=175947435]
-shape = SubResource("SphereShape3D_g4v7s")
+explosion = ExtResource("2_rdg5o")
 
 [node name="craft" type="Node3D" parent="." unique_id=140576949]
 
@@ -24,4 +22,13 @@ transform = Transform3D(0.99997646, 0, 0, 0, 0.99998087, 0, 0, 0, 0.99999815, -1
 wait_time = 20.0
 autostart = true
 
+[node name="Area3D" type="Area3D" parent="." unique_id=110304167]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=583579269]
+shape = SubResource("SphereShape3D_rdg5o")
+
+[node name="LaserGun" parent="." unique_id=510962780 instance=ExtResource("3_rdg5o")]
+transform = Transform3D(-0.9994669, 0, -0.032645293, 0, 1, 0, 0.032645293, 0, -0.9994669, -0.039837934, 0, -1.8188703)
+
 [connection signal="timeout" from="Destroy_Self" to="." method="_on_destroy_self_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

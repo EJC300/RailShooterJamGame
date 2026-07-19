@@ -12,6 +12,7 @@ func explode():
 		explosion_instance.move += Vector3.FORWARD * dt
 		queue_free()
 func _on_player_damage(amount: float) -> void:
+	print("boom")
 	health -= amount
 	PlayerManager.shake_camera()
 	explode()

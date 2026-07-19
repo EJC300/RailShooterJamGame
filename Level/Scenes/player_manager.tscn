@@ -6,3 +6,9 @@
 script = ExtResource("1_vdro6")
 
 [node name="DistanceTimer" type="Timer" parent="." unique_id=744952744]
+
+[node name="ShakeTimer" type="Timer" parent="." unique_id=1558627344]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_shake_timer_timeout"]

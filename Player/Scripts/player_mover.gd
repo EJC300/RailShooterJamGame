@@ -3,11 +3,13 @@ extends CharacterBody3D
 @export var look_speed : float
 @export var camera : Camera3D 
 var pointer: Vector3
-signal damage(amount : float)
+
 func _ready() -> void:
 	PlayerManager.set_player_camera(camera)
-	
 
+signal damage(amount : float)
+func  damage_apply(amount : float):
+	damage.emit(amount)
 func move_and_look_player(dt : float):
 	velocity =	position.lerp((pointer - position),speed * dt)
 	velocity.z = 0

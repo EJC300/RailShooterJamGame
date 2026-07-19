@@ -1,14 +1,10 @@
 extends Node3D
 
-@export var explosion : PackedScene =preload("res://Enemies/Scenes/explosion.tscn")
+@export var explosion : PackedScene =preload("res://Game/Effects/explosion_anim.tscn")
 var player_pos : Vector3
-
+var dt= 0
 var direction_x : float
 var direction_y : float
-var dt= 0
-
-var direction : Vector3
-
 func explode():
 	var explosion_instance = explosion.instantiate()
 
@@ -17,10 +13,10 @@ func explode():
 	explosion_instance.move += Vector3.FORWARD * dt
 	queue_free()
 
+
+var direction : Vector3
 func _ready() -> void:
 	$craft.scale = Vector3.ONE * 0.1
-	
-	
 func scale_based_on_distance(delta : float):
 	player_pos = PlayerManager.player_pos
 	var distance = global_position.distance_squared_to(player_pos)
@@ -34,9 +30,9 @@ func scale_based_on_distance(delta : float):
 	$craft.scale.y = lerp(min_scale,max_scale,distance_percent * delta * 0.1)
 	$craft.scale.z = lerp(min_scale,max_scale,distance_percent * delta * 0.1)
 func steer_target(delta: float):
+	dt = delta
 	direction = position.direction_to(player_pos)
 	var dot_z = direction.dot(transform.basis.z)
-	"res://Enemies/Art/explosion04.png"
 	
 	var can_chase = dot_z < 0.0 && global_position.distance_to(player_pos) > 1
 	
@@ -56,11 +52,11 @@ func steer_target(delta: float):
 			
 		
 func _physics_process(delta: float) -> void:
-	dt = delta
 	steer_target(delta)
 
 	scale_based_on_distance(delta)
 	rotate(transform.basis.x,direction.x)
+
 	var speed =3
 	global_position += -transform.basis.z *delta * speed
 	

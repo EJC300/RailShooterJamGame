@@ -11,7 +11,7 @@ max_scale = 15.0
 texture = ExtResource("2_y0pm7")
 
 [node name="PlanetScaler" type="Timer" parent="." unique_id=30653064]
-wait_time = 0.059000000000000004
+wait_time = 0.059
 autostart = true
 
 [connection signal="timeout" from="PlanetScaler" to="." method="_on_planet_scaler_timeout"]

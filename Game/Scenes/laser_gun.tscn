@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b5xgag1u3u86j" path="res://Game/Scripts/laser_gun.gd" id="1_opmcv"]
 [ext_resource type="AudioStream" uid="uid://cu3ifpb654g6p" path="res://Player/Effects/sfx_laser1.ogg" id="2_am21d"]
+[ext_resource type="PackedScene" uid="uid://cccylp7ya53tq" path="res://Player/Scenes/laser.tscn" id="2_x7bgy"]
 
 [node name="LaserGun" type="Node3D" unique_id=510962780]
 script = ExtResource("1_opmcv")
 rounds_per_minute = 100.0
+laser_bolt = ExtResource("2_x7bgy")
+is_enemy = true
 
 [node name="FireCoolDown" type="Timer" parent="." unique_id=1861404117]
 wait_time = 0.5

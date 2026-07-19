@@ -6,24 +6,30 @@
 [ext_resource type="Script" uid="uid://rrvxdr8ku1iv" path="res://Player/Scripts/health.gd" id="4_omv0o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
-radius = 0.076143876
+radius = 0.15615262
 
-[node name="Player" type="CharacterBody3D" unique_id=114084622]
+[node name="Player" type="CharacterBody3D" unique_id=114084622 groups=["player"]]
 script = ExtResource("1_rg7kn")
 speed = 45.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=458824493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028971337, 0.07669707)
-shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="craft_speederD2" parent="." unique_id=557833252 instance=ExtResource("1_i823h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09905568, 0, 0)
 
 [node name="PlayerLaserGun" parent="." unique_id=977275067 instance=ExtResource("3_52sos")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.008351177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2256734)
 
 [node name="Health" type="Node3D" parent="." unique_id=1686746210]
 script = ExtResource("4_omv0o")
 health = 100.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1762112236]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=458824493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0750687)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1610501720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1501374)
+shape = SubResource("SphereShape3D_g4v7s")
 
 [connection signal="damage" from="." to="Health" method="_on_player_damage"]
