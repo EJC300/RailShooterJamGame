@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://baweam6l3kcd8" path="res://Player/Art/craft_speederD.glb" id="1_i823h"]
 [ext_resource type="Script" uid="uid://cif2m6xvdwp0" path="res://Player/Scripts/player_mover.gd" id="1_rg7kn"]
 [ext_resource type="PackedScene" uid="uid://cnagjofvtpcy0" path="res://Player/Scenes/player_laser_gun.tscn" id="3_52sos"]
+[ext_resource type="Script" uid="uid://rrvxdr8ku1iv" path="res://Player/Scripts/health.gd" id="4_omv0o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.22287473
@@ -19,3 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09905568, 0, 0)
 
 [node name="PlayerLaserGun" parent="." unique_id=977275067 instance=ExtResource("3_52sos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.008351177)
+
+[node name="Health" type="Node3D" parent="." unique_id=1686746210]
+script = ExtResource("4_omv0o")

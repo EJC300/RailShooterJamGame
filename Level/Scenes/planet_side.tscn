@@ -27,3 +27,5 @@ world_camera = NodePath("../WorldCamera")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1929601461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.058091402)
+
+[node name="RailFollower" type="Node3D" parent="." unique_id=1263065155]

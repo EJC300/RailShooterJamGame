@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c7jvgxttut65w" path="res://Game/Scripts/camera_look.gd" id="3_yhmqk"]
 [ext_resource type="PackedScene" uid="uid://vq2ed1diejpy" path="res://Level/Scenes/planet.tscn" id="4_jwcsq"]
 [ext_resource type="PackedScene" uid="uid://ckawgnmrrgyd5" path="res://Enemies/Scenes/EnemyShip.tscn" id="5_84t07"]
+[ext_resource type="Script" uid="uid://7oae87w1u7dq" path="res://Level/Scripts/enemy_spawn_2D.gd" id="6_hemjf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3gngh"]
 panorama = ExtResource("1_oo2o4")
@@ -16,6 +17,14 @@ sky_material = SubResource("PanoramaSkyMaterial_3gngh")
 [sub_resource type="Environment" id="Environment_yf5fn"]
 background_mode = 2
 sky = SubResource("Sky_57qmd")
+
+[sub_resource type="Curve3D" id="Curve3D_hemjf"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.654667, -4.898409, 1.07458, 0, 0, 0, 0, 0, 0, -10.087704, 13.131505, -2.3079913, 0, 0, 0, 0, 0, 0, 3.6878014, 13.507176, -2.48658, 0, 0, 0, 0, 0, 0, 3.6215625, -4.721773, 0.88415027),
+"tilts": PackedFloat32Array(1.1863756, 0.7874239, -1.2921962, -1.5029532)
+}
+point_count = 4
 
 [node name="SpaceLevel" type="Node3D" unique_id=1736142688]
 
@@ -41,6 +50,20 @@ light_color = Color(0.53289264, 0.7359255, 0.8146611, 1)
 [node name="Planet" parent="." unique_id=1297347276 instance=ExtResource("4_jwcsq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.011925)
 
-[node name="EnemyShip" parent="." unique_id=686896700 node_paths=PackedStringArray("test_target") instance=ExtResource("5_84t07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3443832, -2.3841858e-07, -2.392054)
-test_target = NodePath("../Player")
+[node name="EnemyShip" parent="." unique_id=686896700 instance=ExtResource("5_84t07")]
+transform = Transform3D(-0.99989057, 0, -0.014799621, 0, 1, 0, 0.014799621, 0, -0.99989057, -1.872015, 0.027526617, -7.6176324)
+
+[node name="SpawnPath" type="Path3D" parent="." unique_id=2055453826]
+transform = Transform3D(0.4006727, 0, 0, 0, 0.2904834, -0.75705904, 0, 0.20985398, 1.0479339, 1.0159597, -2.0175073, -14.290459)
+top_level = true
+curve = SubResource("Curve3D_hemjf")
+script = ExtResource("6_hemjf")
+
+[node name="Change" type="Timer" parent="SpawnPath" unique_id=146103533]
+autostart = true
+
+[node name="PathSpawnPosition" type="PathFollow3D" parent="SpawnPath" unique_id=1925844539]
+transform = Transform3D(-0.25631857, 0.9662966, -0.0235992, 0.17227954, 0.069695644, 0.98257005, 0.9511049, 0.24778825, -0.1843389, -9.654667, -4.898409, 1.07458)
+use_model_front = true
+
+[connection signal="timeout" from="SpawnPath/Change" to="SpawnPath" method="_on_change_timeout"]

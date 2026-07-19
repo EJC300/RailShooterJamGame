@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://ckawgnmrrgyd5"]
 
 [ext_resource type="Script" uid="uid://biei0qtiy38" path="res://Enemies/Scripts/enemy_ship.gd" id="1_iu2qu"]
-[ext_resource type="Texture2D" uid="uid://cwfdjpof25aj8" path="res://Enemies/Art/enemyRed3.png" id="2_rdg5o"]
+[ext_resource type="PackedScene" uid="uid://rpcwb33c8elg" path="res://Enemies/Art/craft_speederC.glb" id="2_iu2qu"]
 
 [node name="EnemyShip" type="Node3D" unique_id=686896700]
+transform = Transform3D(-0.9997602, 0, 0.021897322, 0, 1, 0, -0.021897322, 0, -0.9997602, 0, 0, 0)
 script = ExtResource("1_iu2qu")
 
-[node name="Ship" type="Sprite3D" parent="." unique_id=1889472745]
-texture = ExtResource("2_rdg5o")
+[node name="craft" type="Node3D" parent="." unique_id=140576949]
+
+[node name="craft_speederC2" parent="craft" unique_id=28361315 instance=ExtResource("2_iu2qu")]
+transform = Transform3D(0.99997646, 0, 0, 0, 0.99998087, 0, 0, 0, 0.99999815, -1.9152187, 0, -1.7602044)
+
+[node name="Destroy_Self" type="Timer" parent="." unique_id=1918342613]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Destroy_Self" to="." method="_on_destroy_self_timeout"]

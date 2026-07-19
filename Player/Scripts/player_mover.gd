@@ -28,5 +28,6 @@ func move_and_look_player(dt : float):
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
+	PlayerManager.player_pos = self.global_position
 	pointer = PlayerManager.mouse_position()
 	move_and_look_player(delta)
