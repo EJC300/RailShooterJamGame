@@ -1,15 +1,26 @@
 extends Node3D
 
-
+@export var explosion : PackedScene =preload("res://Enemies/Scenes/explosion.tscn")
 var player_pos : Vector3
 
 var direction_x : float
 var direction_y : float
-
+var dt= 0
 
 var direction : Vector3
+
+func explode():
+	var explosion_instance = explosion.instantiate()
+
+	get_tree().root.add_child(explosion_instance)
+	explosion_instance.global_position = global_position
+	explosion_instance.move += Vector3.FORWARD * dt
+	queue_free()
+
 func _ready() -> void:
 	$craft.scale = Vector3.ONE * 0.1
+	
+	
 func scale_based_on_distance(delta : float):
 	player_pos = PlayerManager.player_pos
 	var distance = global_position.distance_squared_to(player_pos)
@@ -25,6 +36,7 @@ func scale_based_on_distance(delta : float):
 func steer_target(delta: float):
 	direction = position.direction_to(player_pos)
 	var dot_z = direction.dot(transform.basis.z)
+	"res://Enemies/Art/explosion04.png"
 	
 	var can_chase = dot_z < 0.0 && global_position.distance_to(player_pos) > 1
 	
@@ -44,12 +56,13 @@ func steer_target(delta: float):
 			
 		
 func _physics_process(delta: float) -> void:
+	dt = delta
 	steer_target(delta)
 
 	scale_based_on_distance(delta)
 	rotate(transform.basis.x,direction.x)
-
-	global_position += -transform.basis.z *delta
+	var speed =3
+	global_position += -transform.basis.z *delta * speed
 	
 	
 	transform = transform.orthonormalized()

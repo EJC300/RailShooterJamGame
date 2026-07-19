@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://2mq7juk1e4u4"]
+
+[ext_resource type="SpriteFrames" uid="uid://bq5mubxp2v52b" path="res://Enemies/Art/explosion.tres" id="1_cai6d"]
+[ext_resource type="Script" uid="uid://bmvmjs03p6qog" path="res://Enemies/Scripts/explosion.gd" id="1_umo78"]
+
+[node name="Explosion" type="Node3D" unique_id=33637298]
+script = ExtResource("1_umo78")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1190073894]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0, 0, 0)
+sprite_frames = ExtResource("1_cai6d")
+animation = &"explosion"
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1609870342]
+wait_time = 0.5
+autostart = true
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

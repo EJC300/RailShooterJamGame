@@ -64,7 +64,7 @@ script = ExtResource("6_hemjf")
 autostart = true
 
 [node name="PathSpawnPosition" type="PathFollow3D" parent="SpawnPath" unique_id=1925844539]
-transform = Transform3D(-0.25631845, 0.9662966, -0.0235992, 0.17227945, 0.069695644, 0.98257005, 0.95110446, 0.24778825, -0.1843389, -9.654667, -4.898409, 1.07458)
+transform = Transform3D(-0.25631857, 0.9662966, -0.0235992, 0.17227952, 0.069695644, 0.98257005, 0.9511048, 0.24778825, -0.1843389, -9.654667, -4.898409, 1.07458)
 use_model_front = true
 
 [node name="Explosion" parent="." unique_id=33637298 instance=ExtResource("7_wgysr")]

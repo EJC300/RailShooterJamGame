@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbf7j3sywosjt" path="res://Game/Art/laserBlue08.png" id="2_tu6vh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
-radius = 0.09755194
+radius = 0.11893069
 
 [node name="PlayerLaser" type="Area3D" unique_id=824702556]
 script = ExtResource("1_4e3au")
@@ -23,7 +23,8 @@ transform = Transform3D(0.0071767867, 0, -0.99997425, 0, 1, 0, 0.99997425, 0, 0.
 texture = ExtResource("2_tu6vh")
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1534235576]
-wait_time = 10.0
+wait_time = 0.3
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

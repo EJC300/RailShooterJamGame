@@ -3,9 +3,17 @@
 [ext_resource type="Script" uid="uid://biei0qtiy38" path="res://Enemies/Scripts/enemy_ship.gd" id="1_iu2qu"]
 [ext_resource type="PackedScene" uid="uid://rpcwb33c8elg" path="res://Enemies/Art/craft_speederC.glb" id="2_iu2qu"]
 
-[node name="EnemyShip" type="Node3D" unique_id=686896700]
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.1565872
+
+[node name="EnemyShip" type="Node3D" unique_id=686896700 groups=["Enemy"]]
 transform = Transform3D(-0.9997602, 0, 0.021897322, 0, 1, 0, -0.021897322, 0, -0.9997602, 0, 0, 0)
 script = ExtResource("1_iu2qu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1640069879]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=175947435]
+shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="craft" type="Node3D" parent="." unique_id=140576949]
 

@@ -6,13 +6,14 @@
 [ext_resource type="Script" uid="uid://rrvxdr8ku1iv" path="res://Player/Scripts/health.gd" id="4_omv0o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
-radius = 0.22287473
+radius = 0.076143876
 
 [node name="Player" type="CharacterBody3D" unique_id=114084622]
 script = ExtResource("1_rg7kn")
 speed = 45.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=458824493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028971337, 0.07669707)
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="craft_speederD2" parent="." unique_id=557833252 instance=ExtResource("1_i823h")]
@@ -23,3 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.008351177)
 
 [node name="Health" type="Node3D" parent="." unique_id=1686746210]
 script = ExtResource("4_omv0o")
+health = 100.0
+
+[connection signal="damage" from="." to="Health" method="_on_player_damage"]

@@ -7,9 +7,9 @@ func _process(delta: float) -> void:
 	
 
 func _on_area_entered(area: Area3D) -> void:
-	if area.is_in_group("Enemy"):
-		#area.explode()
-		queue_free()
+	if area.get_parent().is_in_group("Enemy"):
+		area.get_parent().explode()
+		
 
 
 func _on_destroy_timer_timeout() -> void:
